@@ -89,6 +89,17 @@ sudo docker run --rm --network ledgerline_default ledgerline/traffic:dev node lo
 ```
 Background-traffic tuning (env vars read by compose): `TRAFFIC_CONCURRENCY`, `TRAFFIC_THINK_MS`.
 
+## 6b. Break any service and watch the cascade
+
+```
+cd ~/bench
+lab/chaos.sh ledgerline list
+lab/chaos.sh ledgerline predict ledger
+lab/chaos.sh ledgerline run ledger pause 40
+lab/chaos.sh ledgerline heal
+```
+Faults: stop, pause, cpu, net, crash, flap. Full guide and experiments: [CHAOS.md](CHAOS.md).
+
 ## 7. Observability (Grafana / Prometheus / Loki)
 
 All monitoring listens on `127.0.0.1` of the instance only. From your laptop open a tunnel (leave it running):
