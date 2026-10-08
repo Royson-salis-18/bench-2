@@ -45,7 +45,7 @@ Locally (Docker): `cd ledgerline && make bench` (add `BUILD_CA_BUNDLE=/path/ca.c
 There is no UI; call the API at `http://<ip>:8081/api/...` (see `ledgerline/services/` and `ledgerline/tests/` for request shapes) or let the always-on traffic run. `sudo make traffic-off` silences the background traffic; `traffic-on` restores it.
 
 ## Break it
-* **Production-condition scenarios** (12, pool starvation cycle, provider outage, hot row, connection budget, batch OOM, shadow dependency): [SCENARIO-CATALOG.md](SCENARIO-CATALOG.md); run one with `lab/bench-scenario.sh ledgerline ll-02-provider-outage`.
+* **Production-condition scenarios** (6: pool starvation cycle, provider outage, hot row, connection budget, batch OOM, shadow dependency): [SCENARIO-CATALOG.md](SCENARIO-CATALOG.md); run one with `lab/bench-scenario.sh ledgerline ll-02-provider-outage`.
 * **Fault injection on any service** (`stop pause cpu net crash flap`) with predicted blast radius vs observed: `lab/chaos.sh` - [CHAOS.md](CHAOS.md).
 
 ## Observe it
